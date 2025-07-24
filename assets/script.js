@@ -79,10 +79,20 @@ let slideIndex = 0;
 
 // A chaque clic sur la flèche de droite...
 arrowRight.addEventListener("click", () => {
+
 	// J’enlève la classe "dot_selected" sur la dot actuellement active
 	allDots[slideIndex].classList.remove("dot_selected");
-	// j’incrémente l'index de la slide pour passer à la suivante
-	slideIndex++;
+
+	// Ajout d'une condition si je suis sur la dernière slide,
+	if (slideIndex === slides.length - 1) {
+		// je reviens à la première
+		slideIndex = 0;
+	// Sinon,
+	} else {
+		// j’incrémente l'index de la slide pour passer à la suivante
+		slideIndex++;
+	}
+
 	// J’ajoute la classe "dot_selected" sur la dot active
 	allDots[slideIndex].classList.add("dot_selected");
 	// Je modifie le src en récupérant la propriété "image" du tableau slides à l’index actuel
@@ -93,10 +103,20 @@ arrowRight.addEventListener("click", () => {
 
 // A chaque clic sur la flèche de gauche...
 arrowLeft.addEventListener("click", () => {
+
 	// J’enlève la classe "dot_selected" sur la dot actuellement active
 	allDots[slideIndex].classList.remove("dot_selected");
-	// je décrémente l'index de ma slide pour passer à la précédente
-	slideIndex--;
+
+	// Ajout d'une condition si je suis sur la première slide,
+	if (slideIndex === 0) {
+		// Je vais sur la dernière slide
+		slideIndex = slides.length - 1;
+	//Sinon,
+	} else {
+		// je décrémente l'index de ma slide pour passer à la précédente
+		slideIndex--;
+	}
+
 	// J’ajoute la classe "dot_selected" sur la dot active
 	allDots[slideIndex].classList.add("dot_selected");
 	// Je modifie le src en récupérant la propriété "image" du tableau slides à l’index actuel
