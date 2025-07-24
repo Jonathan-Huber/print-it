@@ -43,9 +43,9 @@ const allDots = document.querySelectorAll(".dot");
 
 // Mise à jour de la slide affichée
 function updateSlide() {
-	for (let index = 0; index < allDots.length; index++) {
-    	allDots[index].classList.remove("dot_selected");
-  	}
+	allDots.forEach(dot => {
+		dot.classList.remove("dot_selected");
+	})
   	allDots[slideIndex].classList.add("dot_selected");
 	imageBanner.src =`./assets/images/slideshow/${slides[slideIndex].image}`;
 	slidesText.innerHTML = slides[slideIndex].tagLine;
