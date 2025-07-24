@@ -53,7 +53,7 @@ function updateSlide() {
 
 // Gestion des clics sur les flèches
 arrowRight.addEventListener("click", () => {
-	if (slideIndex === slides.length - 1) {
+	if (slideIndex === slidesNumber - 1) {
 		slideIndex = 0;
 	} else {
 		slideIndex++;
@@ -64,7 +64,7 @@ arrowRight.addEventListener("click", () => {
 
 arrowLeft.addEventListener("click", () => {
 	if (slideIndex === 0) {
-		slideIndex = slides.length - 1;
+		slideIndex = slidesNumber - 1;
 	} else {
 		slideIndex--;
 	}
