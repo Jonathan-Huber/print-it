@@ -77,11 +77,24 @@ const allDots = document.querySelectorAll(".dot");
 // Je crée un variable que j'initialise à 0, représentant l'index de la slide actuelle
 let slideIndex = 0;
 
+// Ajout d'une fonction 
+function updateSlide() {
+	// sur chaque dot, j'enlève la classe <dot_selected>
+	for (let index = 0; index < allDots.length; index++) {
+    	allDots[index].classList.remove("dot_selected");
+  	}
+	// J’ajoute la classe "dot_selected" sur la dot active
+  	allDots[slideIndex].classList.add("dot_selected");
+
+	// Je modifie le src en récupérant la propriété "image" du tableau slides à l’index actuel
+	imageBanner.src =`./assets/images/slideshow/${slides[slideIndex].image}`;
+
+	// Je mets à jour le contenu du <p> avec la propriété "tagLine" correspondante dans slides
+	texteImage.innerHTML = slides[slideIndex].tagLine;
+}
+
 // A chaque clic sur la flèche de droite...
 arrowRight.addEventListener("click", () => {
-
-	// J’enlève la classe "dot_selected" sur la dot actuellement active
-	allDots[slideIndex].classList.remove("dot_selected");
 
 	// Ajout d'une condition si je suis sur la dernière slide,
 	if (slideIndex === slides.length - 1) {
@@ -93,19 +106,12 @@ arrowRight.addEventListener("click", () => {
 		slideIndex++;
 	}
 
-	// J’ajoute la classe "dot_selected" sur la dot active
-	allDots[slideIndex].classList.add("dot_selected");
-	// Je modifie le src en récupérant la propriété "image" du tableau slides à l’index actuel
-	imageBanner.src =`./assets/images/slideshow/${slides[slideIndex].image}`;
-	// Je mets à jour le contenu du <p> avec la propriété "tagLine" correspondante dans slides
-	texteImage.innerHTML = slides[slideIndex].tagLine;
+	// J'appelle la fonction updateSlide qui mets à jour le slide
+	updateSlide();
 });
 
 // A chaque clic sur la flèche de gauche...
 arrowLeft.addEventListener("click", () => {
-
-	// J’enlève la classe "dot_selected" sur la dot actuellement active
-	allDots[slideIndex].classList.remove("dot_selected");
 
 	// Ajout d'une condition si je suis sur la première slide,
 	if (slideIndex === 0) {
@@ -117,10 +123,6 @@ arrowLeft.addEventListener("click", () => {
 		slideIndex--;
 	}
 
-	// J’ajoute la classe "dot_selected" sur la dot active
-	allDots[slideIndex].classList.add("dot_selected");
-	// Je modifie le src en récupérant la propriété "image" du tableau slides à l’index actuel
-	imageBanner.src =`./assets/images/slideshow/${slides[slideIndex].image}`;
-	// Je mets à jour le contenu du <p> avec la propriété "tagLine" correspondante dans slides
-	texteImage.innerHTML = slides[slideIndex].tagLine;
+	// J'appelle la fonction updateSlide qui mets à jour le slide
+	updateSlide();
 });
