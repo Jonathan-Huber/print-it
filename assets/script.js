@@ -18,26 +18,26 @@ const slides = [
 	}
 ]
 
+const imageBanner = document.querySelector(".banner-img");
 const arrowLeft = document.querySelector(".arrow_left")
 const arrowRight = document.querySelector(".arrow_right")
-const nombreImg = slides.length
 const dots = document.querySelector(".dots");
-const imageBanner = document.querySelector(".banner-img");
-const texteImage = document.querySelector("#banner p");
+const slidesText = document.querySelector("#banner p");
+const slidesNumber = slides.length
 
 // Variable d’index
 let slideIndex = 0;
 
 // Création des dots
-let dotsParNombreImg = "";
-for(let index = 0; index < nombreImg; index++) {
+let dotsHTML = "";
+for(let index = 0; index < slidesNumber; index++) {
 	if (index === 0) {
-		dotsParNombreImg += `<div class="dot dot_selected"></div>`;
+		dotsHTML += `<div class="dot dot_selected"></div>`;
 	} else {
-		dotsParNombreImg += `<div class="dot"></div>`;
+		dotsHTML += `<div class="dot"></div>`;
 	}
 }
-dots.innerHTML = dotsParNombreImg
+dots.innerHTML = dotsHTML
 
 const allDots = document.querySelectorAll(".dot");
 
@@ -48,7 +48,7 @@ function updateSlide() {
   	}
   	allDots[slideIndex].classList.add("dot_selected");
 	imageBanner.src =`./assets/images/slideshow/${slides[slideIndex].image}`;
-	texteImage.innerHTML = slides[slideIndex].tagLine;
+	slidesText.innerHTML = slides[slideIndex].tagLine;
 }
 
 // Gestion des clics sur les flèches
