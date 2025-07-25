@@ -22,7 +22,7 @@ Il s’agit d’un projet d’introduction au langage JavaScript.
 
 ## Versions
 
-- En cours
+- Finalisé pour évalutaion - 25/07/2025
 
 ## Auteur
 
